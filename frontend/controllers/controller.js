@@ -129,3 +129,14 @@ exports.editUser = async (req,res)=>{
     })
     res.redirect('/')
 }
+
+//delete user data
+exports.deleteUser = async (req,res)=>{
+    const {id} = req.params
+    UserClient.destroy({
+        where:{
+            uuid: id
+        }
+    })
+    res.redirect('/dashboard')
+}

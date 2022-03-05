@@ -12,6 +12,7 @@ router.get('/dashboard', user.DashboardUI)  //route to dashboard page
 router.get('/edit/:id', user.editUI)        //routes to edit page
 router.post('/sing-up', user.CreateUser)    //create user
 router.post('/login', user.Userlogin)       //user login account
-router.post('/edit/:id', user.editUser)
+router.post('/edit/:id', user.editUser)     //edit user data
+router.post('/delete/:id', user.deleteUser) //delete user data
 
 module.exports = router
