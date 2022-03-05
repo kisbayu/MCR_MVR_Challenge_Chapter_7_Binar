@@ -7,7 +7,7 @@
     <!-- end of navbar -->
     <div class="container-fluid">
         <h1 class="text-center">User List</h1>
-        <a href="/add">
+        <a href="/sign-up">
           <button class="btn btn-primary mb-2 mt-2">Add List</button>
         </a>
         <table class="table table-bordered">
@@ -16,25 +16,20 @@
               <th>ID</th>
               <th>Name</th>
               <th>Email</th>
-              <th>Bio ID</th>
-              <th>Age</th>
-              <th>city</th>
-              <th>Action</th>
+              <th>Role</th>
             </tr>
           </thead>
           <tbody>
             <% data.forEach(item => { %>
             <tr>
-              <td><%= item.user_id %> </td>
-              <td><%= item.user_name %> </td>
-              <td><%= item.user_email %> </td>
-              <td><%= item.bio_id %></td>
-              <td><%= item.bio_age %></td>
-              <td><%= item.bio_city %></td>
+              <td><%= item.uuid %> </td>
+              <td><%= item.name %> </td>
+              <td><%= item.email %> </td>
+              <td><%= item.role %> </td>
               <td>
                 <div class="row">
                   <div class="col-6">
-                    <a href="/edit/<%= item.user_id %>">
+                    <a href="/edit/<%= item.uuid %>">
                       <button class="btn btn-warning">
                         Edit
                       </button>

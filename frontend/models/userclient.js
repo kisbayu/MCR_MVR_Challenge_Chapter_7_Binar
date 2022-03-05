@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class userclinet extends Model {
+  class UserClient extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  userclinet.init({
+  UserClient.init({
     uuid: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -21,7 +21,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     name: {
       type: DataTypes.STRING(255),
-      allowNull: false},
+      allowNull: false
+    },
     role: {
       type: DataTypes.ENUM('SuperAdmin', 'PlayerUser'),
       allowNull: false,
@@ -34,15 +35,15 @@ module.exports = (sequelize, DataTypes) => {
     }
     },
     password: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.STRING(255),
+      allowNull: false
     }
   }, {
     sequelize,
-    modelName: 'userclinet',
+    modelName: 'UserClient',
     freezeTableName: true,
     createdAt: true,
     updatedAt: true,
   });
-  return userclinet;
+  return UserClient;
 };
