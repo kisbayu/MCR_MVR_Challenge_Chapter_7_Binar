@@ -1,24 +1,24 @@
 {
   "development": {
-    "username": "root",
+    "username": "postgres",
     "password": "Badutsulap1",
-    "database": "Challenge_Chapter_7",
+    "database": "challenge_chapter_7",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "port": 5432
   },
   "test": {
-    "username": "root",
+    "username": "postgres",
     "password": "Badutsulap1",
-    "database": "Challenge_Chapter_7",
+    "database": "challenge_chapter_7",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "port": 5432
   },
   "production": {
-    "username": "root",
+    "username": "postgres",
     "password": "Badutsulap1",
-    "database": "Challenge_Chapter_7",
+    "database": "challenge_chapter_7",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "port": 5432
