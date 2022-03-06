@@ -11,6 +11,35 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      User.hasMany(models.Room, {
+        foreignKey: 'owned_by',
+        as: 'room'
+      })
+
+      User.hasMany(models.Room, {
+        foreignKey: 'player_1_uuid',
+        as: 'room_player_1_uuid'
+      })
+
+      User.hasMany(models.Room, {
+        foreignKey: 'player_2_uuid',
+        as: 'room_player_2_uuid'
+      })
+
+      User.hasMany(models.Room, {
+        foreignKey: 'winner_uuid',
+        as: 'winner_room'
+      })
+
+      User.hasMany(models.Room, {
+        foreignKey: 'loser_uuid',
+        as: 'loser_room'
+      })
+
+      User.hasOne(models.User_History, {
+        foreignKey: 'user_uuid',
+        as: 'history'
+      })
     }
   }
   User.init({
@@ -34,8 +63,8 @@ module.exports = (sequelize, DataTypes) => {
     }
     },
     password: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.STRING(255),
+      allowNull: false,
     }
   }, {
     sequelize,
@@ -44,5 +73,12 @@ module.exports = (sequelize, DataTypes) => {
     createdAt: true,
     updatedAt: true,
   });
+  //hooks
+  User.beforeCreate((user)=>{
+    user.email = user.email.toLowerCase()
+  })
+  User.beforeUpdate((user)=>{
+    user.email = user.email.toLowerCase()
+  })
   return User;
 };
