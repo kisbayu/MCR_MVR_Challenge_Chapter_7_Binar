@@ -1,7 +1,6 @@
 //imported modules
 const express = require('express');
 const router = express.Router();
-const app = express();
 const user = require('../controllers/controller')
 
 router.get('/', user.HomeUI)                //route to homepage
